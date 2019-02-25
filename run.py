@@ -17,5 +17,7 @@ file_name = sys.argv[1]
 with open(file_name, 'r') as f:
   csv_reader = csv.DictReader(f)
   for row in csv_reader:
-      data = get_pwned(row['Email'])
-      print(len(data))
+      email = row['Email']
+      data = get_pwned(email)
+      for breach in data:
+        print(f'{email}, {breach["Title"]}, {breach["BreachDate"]}')
