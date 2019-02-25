@@ -12,9 +12,12 @@ def get_pwned(email):
 def print_result_for_breach(breach):
   print(f'{email}, {breach["Title"]}, {breach["BreachDate"]}')
 
-if len(sys.argv) != 2:
-  sys.exit('Pass in the csv file as argument')
+def validate_input():
+  if len(sys.argv) != 2:
+    sys.exit('Pass in the csv file as argument')
 
+
+validate_input()
 file_name = sys.argv[1]
 
 with open(file_name, 'r') as f:
