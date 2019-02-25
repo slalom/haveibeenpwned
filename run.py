@@ -9,6 +9,9 @@ def get_pwned(email):
   else:
     return []
 
+def print_result_for_breach(breach):
+  print(f'{email}, {breach["Title"]}, {breach["BreachDate"]}')
+
 if len(sys.argv) != 2:
   sys.exit('Pass in the csv file as argument')
 
@@ -20,4 +23,4 @@ with open(file_name, 'r') as f:
       email = row['Email']
       data = get_pwned(email)
       for breach in data:
-        print(f'{email}, {breach["Title"]}, {breach["BreachDate"]}')
+        print_result_for_breach(breach)
