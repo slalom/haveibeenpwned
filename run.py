@@ -1,8 +1,10 @@
 import sys
 import csv
 import requests
+import time
 
 def get_pwned(email):
+  time.sleep(1.6)
   r = requests.get(f'https://haveibeenpwned.com/api/v2/breachedaccount/{email}')
   if r.status_code == 200:
     return r.json()
